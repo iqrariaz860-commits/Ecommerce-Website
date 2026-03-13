@@ -1,0 +1,1026 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="Delicious freshly made cupcakes. Order customized cupcakes for your special occasions.">
+    <meta name="theme-color" content="#FF69B4">
+    <title>Cupcakes - Delicious Freshly Made Cupcakes | Order Online</title>
+    <!-- Prevent tap highlight on mobile -->
+    <style>
+        * {
+            -webkit-tap-highlight-color: rgba(255, 105, 180, 0.3);
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- header section starts  -->
+<style>
+:root{
+    --pink:#FF69B4;
+}
+
+*{
+    margin:0; padding:0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma,sans-serif;
+    outline: none; border:none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: .2s linear;
+}
+
+/* Make all images responsive */
+img{
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+html{
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    overflow-x: hidden;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+section{
+    padding:2rem 9%;
+}
+
+.heading{
+    text-align: center;
+    font-size: 4rem;
+    color:#333;
+    padding:1rem;
+    margin:2rem 0;
+    background:rgba(255, 51, 153,.05);
+}
+
+.heading span{
+    color:hotpink;
+}
+
+.btn{
+    display: inline-block;
+    margin-top: 1rem;
+    border-radius: 5rem;
+    background:#333;
+    color:#fff;
+    padding:.9rem 3.5rem;
+    cursor: pointer;
+    font-size: 1.7rem;
+    border: none;
+    transition: all 0.3s ease;
+    min-height: 4.4rem; /* Touch-friendly size */
+    min-width: 12rem;
+}
+
+.btn:hover{
+    background: hotpink;
+    transform: translateY(-.2rem);
+    box-shadow: 0 .5rem 1rem rgba(255, 105, 180, 0.3);
+}
+
+header{
+    position: fixed;
+    top:0; left:0; right:0;
+    background:#fff;
+    padding:2rem 9%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+}
+
+header .logo{
+    font-size: 3rem;
+    color:#333;
+    font-weight: bolder;
+}
+
+header .logo span{
+    color:hotpink;
+}
+
+header .navbar a{
+    font-size: 2rem;
+    padding:0 1.5rem;
+    color:#666;
+    transition: color 0.3s ease;
+    position: relative;
+    min-height: 4.4rem; /* Touch-friendly */
+    display: inline-flex;
+    align-items: center;
+}
+
+header .navbar a:hover{
+    color:hotpink;
+}
+
+header .icons a{
+    font-size: 2.5rem;
+    color:#333;
+    margin-left: 1.5rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    min-width: 4.4rem; /* Touch-friendly */
+    min-height: 4.4rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header .icons a:hover{
+    color:var(--pink);
+}
+
+header #menu-btn{
+    font-size: 3rem;
+    color:#333;
+    cursor: pointer;
+    display: none;
+    user-select: none;
+    min-width: 4.4rem;
+    min-height: 4.4rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.home{
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    background:url("{% static 'images/img.jpeg' %}") no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.home .content{
+    max-width: 50rem;
+}
+
+.home .content h3{
+    font-size: 6rem;
+    color:#333;
+}
+
+.home .content span{
+    font-size: 3.5rem;
+    color:var(--pink);
+    padding:1rem 0;
+    line-height: 1.5;
+}
+
+.home .content p{
+    font-size: 1.5rem;
+    color:#999;
+    padding:1rem 0;
+    line-height: 1.5;
+}
+
+.about .row{
+    display: flex;
+    align-items: center;
+    gap:2rem;
+    flex-wrap: wrap;
+    padding:2rem 0;
+    padding-bottom: 3rem;
+}
+
+.about .row .video-container{
+    flex:1 1 40rem;
+    position: relative;
+}
+
+.about .row .video-container video{
+    width:100%;
+    border:1.5rem solid #fff;
+    border-radius: .5rem;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+    height: 100%;
+    object-fit: cover;
+}
+
+.about .row .video-container h3{
+    position: absolute;
+    top:50%; transform: translateY(-50%);
+    font-size: 3rem;
+    background:#fff;
+    width:100%;
+    padding:1rem 2rem;
+    text-align: center;
+    mix-blend-mode: screen;
+}
+
+.about .row .content{
+    flex:1 1 40rem;
+}
+
+.about .row .content h3{
+    font-size: 3rem;
+    color:#333;
+}
+
+.about .row .content p{
+    font-size: 1.5rem;
+    color:#999;
+    padding:.5rem 0;
+    padding-top: 1rem;
+    line-height: 1.5;
+}
+
+
+.products .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap:2rem;
+    justify-items: center;
+}
+
+.products .box-container .box{
+    width: 100%;
+    max-width: 35rem;
+    box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.1);
+    border-radius: 1rem;
+    border:.1rem solid rgba(0,0,0,.1);
+    position: relative;
+    background: #fff;
+    transition: transform 0.3s ease;
+}
+
+.products .box-container .box:hover{
+    transform: translateY(-1rem);
+    box-shadow: 0 1rem 2rem rgba(0,0,0,.15);
+}
+
+.products .box-container .box .discount{
+    position: absolute;
+    top:1rem; left:1rem;
+    padding:.7rem 1.5rem;
+    font-size: 1.8rem;
+    color:#fff;
+    background: linear-gradient(135deg, hotpink, #ff1493);
+    z-index: 1;
+    border-radius: 2rem;
+    font-weight: bold;
+    box-shadow: 0 .3rem .8rem rgba(255,20,147,.3);
+}
+
+.products .box-container .box .image{
+    position: relative;
+    text-align: center;
+    padding: 2rem;
+    overflow:hidden;
+    border-radius: 1rem 1rem 0 0;
+    background: linear-gradient(to bottom, rgba(255,105,180,.05), transparent);
+}
+
+.products .box-container .box .image img{
+    height: 28rem;
+    width: 100%;
+    object-fit: cover;
+    border-radius: .5rem;
+    transition: transform 0.3s ease;
+}
+
+.products .box-container .box:hover .image img{
+    transform: scale(1.1) rotate(2deg);
+}
+
+.products .box-container .box .image .icons{
+    position: absolute;
+    bottom:-7rem; left:0; right:0;
+    display: flex;
+}
+
+.products .box-container .box:hover .image .icons{
+    bottom:0;
+}
+
+.products .box-container .box .image .icons a:hover{
+    background:#333;
+}
+
+.products .box-container .box .content{
+    padding:2rem;
+    text-align: center;
+    background: #fff;
+    border-radius: 0 0 1rem 1rem;
+}
+
+.products .box-container .box .content h3{
+    font-size: 2.2rem;
+    color:#333;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    min-height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.products .box-container .box .content .description{
+    font-size: 1.4rem;
+    color:#666;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    min-height: 4rem;
+}
+
+.products .box-container .box .content .price{
+    font-size: 3rem;
+    color: hotpink;
+    font-weight: bolder;
+    padding-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.products .box-container .box .content .price span{
+    font-size: 1.8rem;
+    color:#999;
+    font-weight: lighter;
+    text-decoration: line-through;
+}
+
+.products .box-container .box .content .add-to-cart{
+    margin-top: 1.5rem;
+    display: inline-block;
+    padding: 1rem 3rem;
+    background: linear-gradient(135deg, hotpink, #ff1493);
+    color: #fff;
+    border-radius: 5rem;
+    font-size: 1.6rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.products .box-container .box .content .add-to-cart:hover{
+    background: linear-gradient(135deg, #ff1493, hotpink);
+    transform: scale(1.05);
+    box-shadow: 0 .5rem 1rem rgba(255,20,147,.3);
+}
+
+.review .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap:1.5rem;
+}
+
+.review .box-container .box{
+    box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.1);
+    border-radius: .5rem;
+    padding:3rem 2rem;
+    position: relative;
+    border:.1rem solid rgba(0,0,0,.1);
+    transition: transform 0.3s ease;
+}
+
+.review .box-container .box:hover{
+    transform: translateY(-.5rem);
+    box-shadow: 0 1rem 2rem rgba(0,0,0,.15);
+}
+
+.review .box-container .box p{
+    color:#999;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    padding-top: 2rem;
+}
+
+.review .box-container .box .user{
+    display: flex;
+    align-items: center;
+    padding-top: 2rem;
+}
+
+.review .box-container .box .user img{
+    height:6rem;
+    width:6rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 1rem;
+}
+
+.review .box-container .box .user h3{
+    font-size: 2rem;
+    color:#333;
+}
+
+.review .box-container .box .user span{
+    font-size: 1.5rem;
+    color:#999;
+}
+
+.contact .row{
+    display: flex;
+    flex-wrap: wrap-reverse;
+    gap:1.5rem;
+    align-items: center;
+}
+
+.contact .row form{
+    flex:1 1 40rem;
+    padding:2rem 2.5rem;
+    box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.1);
+    border:.1rem solid rgba(0,0,0,.1);
+    background: #fff;
+    border-radius: .5rem;
+}
+
+.contact .row .image{
+    flex:1 1 40rem;
+}
+
+.contact .row .image img{
+    width: 100%;
+}
+
+.contact .row form .box{
+    padding:1rem;
+    font-size: 1.7rem;
+    color:#333;
+    text-transform: none;
+    border:.1rem solid rgba(0,0,0,.1);
+    border-radius: .5rem;
+    margin:.7rem 0;
+    width: 100%;
+}
+
+.contact .row form .box:focus{
+    border-color:hotpink;
+}
+
+.contact .row form textarea{
+    height: 15rem;
+    resize: none;
+}
+
+.footer .box-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap:1.5rem;
+}
+
+.footer .box-container .box{
+    flex:1 1 25rem;
+}
+
+.footer .box-container .box h3{
+    color:#333;
+    font-size: 2.5rem;
+    padding:1rem 0;
+}
+
+.footer .box-container .box a{
+    display: block;
+    color:#666;
+    font-size: 1.5rem;
+    padding:1rem 0;
+}
+
+.footer .box-container .box a:hover{
+    color:var(--pink);
+    text-decoration: underline;
+}
+
+.footer .box-container .box  img{
+    margin-top: 1rem;
+}
+
+.footer .credit{
+    text-align: center;
+    padding:1.5rem;
+    margin-top: 1.5rem;
+    padding-top: 2.5rem;
+    font-size: 2rem;
+    color:#333;
+    border-top: .1rem solid rgba(0,0,0,.1);
+    padding-bottom: 9rem;
+}
+
+.footer .credit span{
+    color:hotpink;
+}
+
+/* Back to top button */
+#scroll-top{
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 5rem;
+    height: 5rem;
+    background: linear-gradient(135deg, hotpink, #ff1493);
+    color: #fff;
+    border-radius: 50%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    cursor: pointer;
+    z-index: 999;
+    box-shadow: 0 .5rem 1rem rgba(255, 20, 147, 0.3);
+    transition: all 0.3s ease;
+}
+
+#scroll-top:hover{
+    transform: translateY(-.5rem);
+    box-shadow: 0 1rem 2rem rgba(255, 20, 147, 0.5);
+}
+
+#scroll-top.active{
+    display: flex;
+}
+
+/* Responsive Design */
+
+/* Large tablets and small laptops */
+@media (max-width:991px){
+    html{
+        font-size: 55%;
+    }
+    
+    header{
+        padding:2rem 4%;
+    }
+    
+    section{
+        padding:2rem 4%;
+    }
+}
+
+/* Tablets */
+@media (max-width:768px){
+    html{
+        font-size: 50%;
+    }
+    
+    header #menu-btn{
+        display: block;
+    }
+    
+    header .navbar{
+        position: absolute;
+        top:100%; left:0; right:0;
+        background:#fff;
+        border-top: .1rem solid rgba(0,0,0,.1);
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+        box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+    }
+    
+    header .navbar.active{
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+    
+    header .navbar a{
+        display: block;
+        margin:1.5rem;
+        padding:1.5rem;
+        background:#f7f7f7;
+        border:.1rem solid rgba(0,0,0,.1);
+        border-radius: .5rem;
+        font-size: 2rem;
+    }
+    
+    .home{
+        background-position: left;
+        min-height: 80vh;
+    }
+    
+    .home .content{
+        max-width: 100%;
+    }
+    
+    .home .content h3{
+        font-size: 4.5rem;
+    }
+    
+    .home .content span{
+        font-size: 2.8rem;
+    }
+    
+    .home .content p{
+        font-size: 1.6rem;
+    }
+    
+    .about .row{
+        flex-direction: column;
+    }
+    
+    .about .row .video-container{
+        width: 100%;
+    }
+    
+    .products .box-container{
+        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+        gap:1.5rem;
+    }
+    
+    .review .box-container{
+        grid-template-columns: 1fr;
+    }
+    
+    .contact .row{
+        flex-direction: column-reverse;
+    }
+    
+    .contact .row form{
+        width: 100%;
+    }
+    
+    .contact .row .image{
+        width: 100%;
+    }
+    
+    .footer .box-container{
+        flex-direction: column;
+    }
+}
+
+/* Mobile phones (landscape) */
+@media (max-width:576px){
+    html{
+        font-size: 45%;
+    }
+    
+    .heading{
+        font-size: 3.5rem;
+    }
+    
+    .home .content h3{
+        font-size: 3.5rem;
+    }
+    
+    .home .content span{
+        font-size: 2.2rem;
+    }
+    
+    .products .box-container{
+        grid-template-columns: 1fr;
+        gap:1.5rem;
+    }
+    
+    .products .box-container .box{
+        max-width: 100%;
+    }
+    
+    .products .box-container .box .image img{
+        height: 25rem;
+    }
+    
+    .about .row .video-container h3{
+        font-size: 2.5rem;
+    }
+    
+    .btn{
+        padding:.7rem 2.5rem;
+        font-size: 1.5rem;
+    }
+}
+
+/* Small mobile phones */
+@media (max-width:450px){
+    html{
+        font-size: 40%;
+    }
+    
+    header{
+        padding:1.5rem 3%;
+    }
+    
+    section{
+        padding:2rem 3%;
+    }
+    
+    .home{
+        min-height: 70vh;
+    }
+    
+    .home .content h3{
+        font-size: 3rem;
+    }
+    
+    .home .content span{
+        font-size: 2rem;
+    }
+    
+    .products .box-container .box .content h3{
+        font-size: 2rem;
+        min-height: auto;
+    }
+    
+    .products .box-container .box .content .price{
+        font-size: 2.5rem;
+    }
+    
+    .products .box-container .box .content .price span{
+        font-size: 1.6rem;
+    }
+    
+    .products .box-container .box .image img{
+        height: 22rem;
+    }
+    
+    .contact .row form .box{
+        font-size: 1.5rem;
+    }
+    
+    .footer .credit{
+        font-size: 1.8rem;
+    }
+}
+
+</style>
+
+<header>
+    <a href="#" class="logo">cupcakes<span>.</span></a>
+    <nav class="navbar">
+        <a href="#home">home</a>
+        <a href="#about">about</a>
+        <a href="#products">products</a>
+        <a href="#review">review</a>
+        <a href="#contact">contact</a>
+    </nav>
+    <div class="icons">
+        <div id="menu-btn">☰</div>
+    </div>
+</header>
+
+<!-- home section starts -->
+<section class="home" id="home">
+    <div class="content">
+        <h3>freshly Made CupCakes</h3>
+        <span> Delicious and yummy </span>
+        <p>We made best delicious , Yummy freshly prepared Customized Cupcakes on customer's demand. So, Forget Calories and Just Eat CupCakes!</p>
+        <a href="#" class="btn">shop now</a>
+    </div>
+</section>
+<!-- home section ends -->
+
+<!-- about section starts -->
+<section class="about" id="about">
+    <h1 class="heading"> <span> about </span> us </h1>
+    <div class="row">
+        <div class="video-container">
+            <video src="{% static 'images/vid.mp4' %}" loop autoplay muted></video>
+            <h3>Best Cup Cakes</h3>
+        </div>
+        <div class="content">
+            <h3>why choose us?</h3>
+            <p>We utilize quality materials to make your cake flavorful, delicious, and solid. Appropriate from little children to senior individuals, anybody can eat our cake with no question in their brain. We utilize quality materials, and our cakes have sensible rates. At ‘Cup Cakes.,’ you will get the best quality at a reasonable cost.</p>
+            <p>So arrange our all-around structured and heavenly Cupcakes and be the purpose of fascination for your festival!</p>
+            <a href="#" class="btn">learn more</a>
+        </div>
+    </div>
+</section>
+<!-- about section ends -->
+
+<!-- products section starts -->
+<section class="products" id="products">
+    <h1 class="heading"> latest <span>products</span> </h1>
+    <div class="box-container">
+        {% for product in products %}
+        <div class="box">
+            {% if product.discount > 0 %}
+            <span class="discount">-{{ product.discount }}%</span>
+            {% endif %}
+            <div class="image">
+                <img src="{{ product.image.url }}" alt="{{ product.name }}">
+            </div>
+            <div class="content">
+                <h3>{{ product.name }}</h3>
+                <p class="description">{{ product.description|truncatewords:15 }}</p>
+                <div class="price"> 
+                    ${{ product.get_discounted_price|floatformat:2 }}
+                    {% if product.discount > 0 %}
+                    <span>${{ product.get_original_price|floatformat:2 }}</span>
+                    {% endif %}
+                </div>
+                <a href="#contact" class="add-to-cart">Order Now</a>
+            </div>
+        </div>
+        {% empty %}
+        <div style="grid-column: 1/-1; text-align: center; padding: 5rem;">
+            <p style="font-size: 2.5rem; color: #666; margin-bottom: 2rem;">No products available yet! 🧁</p>
+            <p style="font-size: 1.6rem; color: #999;">Add delicious cupcakes from the admin panel to get started!</p>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+<!-- products section ends -->
+
+
+
+
+
+
+
+
+
+<!-- review section starts -->
+<section class="review" id="review">
+    <h1 class="heading"> customer's<span>  review</span> </h1>
+    <div class="box-container">
+        {% for review in reviews %}
+        <div class="box">
+            <p>{{ review.message }}</p>
+            <div class="user">
+                {% if review.image %}
+                <img src="{{ review.image.url }}" alt="{{ review.name }}">
+                {% else %}
+                <img src="{% static 'images/default-avatar.jpg' %}" alt="{{ review.name }}">
+                {% endif %}
+                <div class="user-info">
+                    <h3>{{ review.name }}</h3>
+                    <span>happy customer</span>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="box">
+            <p>The Cupcakes was wonderful and tasted absolutely delicious. Everyone in the party was drooling for the Cupcakes and had more than one piece. It was truly upto the mark and my expectations. Will truly recommend CupCakes to everyone in the city</p>
+            <div class="user">
+                <img src="{% static 'images/Gary.jpg' %}" alt="">
+                <div class="user-info">
+                    <h3>Gary</h3>
+                    <span>happy customer</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <p>Customized Cupcakes are supposed to be a reflection of your taste and personality. The team understood exactly what I wanted!</p>
+            <div class="user">
+                <img src="{% static 'images/Emily.jpg' %}" alt="">
+                <div class="user-info">
+                    <h3>Emily</h3>
+                    <span>happy customer</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <p>I ordered a very last minute Cupcakes for my friend's birthday and they delivered beyond expectations. Highly recommended!</p>
+            <div class="user">
+                <img src="{% static 'images/Maggie.jpg' %}" alt="">
+                <div class="user-info">
+                    <h3>Maggie</h3>
+                    <span>happy customer</span>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+<!-- review section ends -->
+
+<!-- contact section starts -->
+<section class="contact" id="contact">
+    <h1 class="heading"> <span> contact </span> us </h1>
+    
+    {% if messages %}
+        {% for message in messages %}
+        <div style="padding: 1.5rem; margin: 2rem auto; max-width: 80rem; background: {% if message.tags == 'success' %}#d4edda{% else %}#f8d7da{% endif %}; border: .1rem solid {% if message.tags == 'success' %}#c3e6cb{% else %}#f5c6cb{% endif %}; border-radius: .5rem; color: {% if message.tags == 'success' %}#155724{% else %}#721c24{% endif %}; font-size: 1.6rem; text-align: center;">
+            {{ message }}
+        </div>
+        {% endfor %}
+    {% endif %}
+    
+    <div class="row">
+        <form method="POST" action="{% url 'home' %}">
+            {% csrf_token %}
+            <input type="text" name="name" placeholder="Your Name" class="box" required>
+            <input type="email" name="email" placeholder="Your Email" class="box" required>
+            <input type="tel" name="phone" placeholder="Your Phone Number" class="box" required>
+            <textarea name="message" class="box" placeholder="Your Message" cols="30" rows="10" required></textarea>
+            <input type="submit" value="Send Message" class="btn">
+        </form>
+        <div class="image">
+            <img src="{% static 'images/tasty.jpg' %}" alt="">
+        </div>
+    </div>
+</section>
+<!-- contact section ends -->
+
+<!-- footer section starts -->
+<section class="footer">
+    <div class="box-container">
+        <div class="box">
+            <h3>quick links</h3>
+            <a href="#">home</a>
+            <a href="#">about</a>
+            <a href="#">products</a>
+            <a href="#">review</a>
+            <a href="#">contact</a>
+        </div>
+
+        <div class="box">
+            <h3>extra links</h3>
+            <a href="#">my account</a>
+            <a href="#">my order</a>
+            <a href="#">my favorite</a>
+        </div>
+
+        <div class="box">
+            <h3>locations</h3>
+            <a href="#">Pakistan</a>
+            <a href="#">USA</a>
+            <a href="#">UK</a>
+            <a href="#">India</a>
+        </div>
+
+        <div class="box">
+            <h3>payment</h3>
+            <img src="{% static 'images/payment.png' %}" alt="">
+        </div>
+    </div>
+
+    <div class="credit"> created by <span>deliciousmee!</span> | all rights reserved! </div>
+</section>
+<!-- footer section ends -->
+
+<!-- Back to top button -->
+<div id="scroll-top">↑</div>
+
+<!-- JavaScript for mobile menu and smooth scrolling -->
+<script>
+    // Hamburger menu toggle
+    let menuBtn = document.querySelector('#menu-btn');
+    let navbar = document.querySelector('.navbar');
+    
+    if(menuBtn) {
+        menuBtn.onclick = () => {
+            navbar.classList.toggle('active');
+            menuBtn.textContent = navbar.classList.contains('active') ? '✕' : '☰';
+        }
+    }
+    
+    // Close menu when clicking on a link
+    document.querySelectorAll('.navbar a').forEach(link => {
+        link.onclick = () => {
+            navbar.classList.remove('active');
+            if(menuBtn) {
+                menuBtn.textContent = '☰';
+            }
+        }
+    });
+    
+    // Back to top button functionality
+    let scrollTop = document.querySelector('#scroll-top');
+    
+    window.addEventListener('scroll', () => {
+        // Close menu when scrolling
+        navbar.classList.remove('active');
+        if(menuBtn) {
+            menuBtn.textContent = '☰';
+        }
+        
+        // Show/hide back to top button
+        if(window.scrollY > 300) {
+            scrollTop.classList.add('active');
+        } else {
+            scrollTop.classList.remove('active');
+        }
+    });
+    
+    // Scroll to top when button clicked
+    scrollTop.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if(href !== '#' && document.querySelector(href)) {
+                e.preventDefault();
+                document.querySelector(href).scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
+
